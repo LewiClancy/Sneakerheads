@@ -11,7 +11,7 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$sneakerheads-primary-light: mat.define-palette(mat.$deeppurple-palette);
+$sneakerheads-primary-light: mat.define-palette(mat.$deep-purple-palette);
 $sneakerheads-accent-light: mat.define-palette(
   mat.$amber-palette,
   A200,
@@ -60,8 +60,13 @@ $sneakerheads-dark-theme: mat.define-dark-theme(
 body.dark {
   @include mat.all-component-themes($sneakerheads-dark-theme);
 }
-// tailwindcss utilities
 
+//TODO fix to use this later on
+// @media (prefers-color-scheme: dark) {
+//   @include mat.all-component-themes($sneakerheads-dark-theme);
+// }
+
+// tailwindcss utilities
 @tailwind base;
 @tailwind utilities;
 @tailwind components;
