@@ -1,7 +1,6 @@
-
 // Custom Theming for Angular Material
 // For more information: https://material.angular.io/guide/theming
-@use '@angular/material' as mat;
+@use "@angular/material" as mat;
 // Plus imports for other components in your app.
 
 // Include the common styles for Angular Material. We include this here so that you only
@@ -12,28 +11,61 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$sneakerheads-primary: mat.define-palette(mat.$indigo-palette);
-$sneakerheads-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+$sneakerheads-primary-light: mat.define-palette(mat.$deeppurple-palette);
+$sneakerheads-accent-light: mat.define-palette(
+  mat.$amber-palette,
+  A200,
+  A100,
+  A400
+);
+
+//dark theme
+$sneakerheads-primary-dark: mat.define-palette(mat.$purple-palette);
+$sneakerheads-accent-dark: mat.define-palette(
+  mat.$green-palette,
+  A200,
+  A100,
+  A400
+);
 
 // The warn palette is optional (defaults to red).
 $sneakerheads-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$sneakerheads-theme: mat.define-light-theme((
-  color: (
-    primary: $sneakerheads-primary,
-    accent: $sneakerheads-accent,
-    warn: $sneakerheads-warn,
+$sneakerheads-light-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $sneakerheads-primary-light,
+      accent: $sneakerheads-accent-light,
+      warn: $sneakerheads-warn,
+    ),
   )
-));
+);
+$sneakerheads-dark-theme: mat.define-dark-theme(
+  (
+    color: (
+      primary: $sneakerheads-primary-dark,
+      accent: $sneakerheads-accent-dark,
+      warn: $sneakerheads-warn,
+    ),
+  )
+);
 
 // Include theme styles for core and each component used in your app.
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
-@include mat.all-component-themes($sneakerheads-theme);
+@include mat.all-component-themes($sneakerheads-light-theme);
 
-/* You can add global styles to this file, and also import other style files */
+body.dark {
+  @include mat.all-component-themes($sneakerheads-dark-theme);
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
