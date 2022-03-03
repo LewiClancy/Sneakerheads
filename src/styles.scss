@@ -60,6 +60,11 @@ $sneakerheads-dark-theme: mat.define-dark-theme(
 body.dark {
   @include mat.all-component-themes($sneakerheads-dark-theme);
 }
+// tailwindcss utilities
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
 
 html,
 body {
